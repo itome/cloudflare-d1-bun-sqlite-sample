@@ -15,7 +15,7 @@ compatibility_date = "2024-08-29"
 [[d1_databases]]
 binding = "DB"
 database_name = "my-database"
-database_id = ""
+database_id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 # [ai]
 # binding = "AI"

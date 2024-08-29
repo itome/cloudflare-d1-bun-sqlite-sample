@@ -1,9 +1,18 @@
-import { Hono } from 'hono'
+import { Hono } from "hono";
+import { createDB } from "./repository/db";
+import { UserRepository } from "./repository/user";
 
-const app = new Hono()
+type Bindings = {
+	DB: D1Database;
+};
 
-app.get('/', (c) => {
-  return c.text('Hello Hono!')
-})
+const app = new Hono<{ Bindings: Bindings }>();
 
-export default app
+app.get("/users", async (c) => {
+	const db = createDB(c.env.DB);
+	const repository = new UserRepository(db);
+	const result = await repository.getAll();
+	return c.json(result);
+});
+
+export default app;
