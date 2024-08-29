@@ -5,7 +5,7 @@
     "deploy": "wrangler deploy --minify src/index.ts",
     "typecheck": "tsc",
     "typegen": "wrangler types",
-    "check:write": "biome check --write ./app",
+    "check:write": "biome check --write ./",
     "migrate:gen": "drizzle-kit generate",
     "migrate:local": "wrangler d1 migrations apply my-database --local"
   },
